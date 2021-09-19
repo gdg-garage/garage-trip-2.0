@@ -30,5 +30,6 @@ func main() {
 
 	http.HandleFunc("/axzfom", TextHandler("1A"))   // cross
 	http.HandleFunc("/PSAMRBJZ", TextHandler("2B")) // cars
+	http.HandleFunc("/FANTASY", TextHandler("3C")) // piano
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", *port), nil))
 }
