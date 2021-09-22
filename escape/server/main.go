@@ -68,6 +68,7 @@ func main() {
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("./css/"))))
 	http.HandleFunc("/axzfom", TextHandler("1A"))     // cross
 	http.HandleFunc("/PSAMRBJZ", TextHandler("2B"))   // cars
+	http.HandleFunc("/FANTASY", TextHandler("3C"))    // piano
 	http.HandleFunc("/logik/game", MasterMindHandler) // mastermind
 	http.HandleFunc("/logik/guess", MasterMindGuessHandler)
 
