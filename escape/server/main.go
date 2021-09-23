@@ -69,6 +69,9 @@ func main() {
 	http.HandleFunc("/axzfom", TextHandler("1A"))     // cross
 	http.HandleFunc("/PSAMRBJZ", TextHandler("2B"))   // cars
 	http.HandleFunc("/FANTASY", TextHandler("3C"))    // piano
+	http.HandleFunc("/48", TextHandler("4D"))         // infinite sumo
+	http.HandleFunc("/510", TextHandler("5E"))        // long shift with logic puzzle
+	http.HandleFunc("/781", TextHandler("6F"))        // number sequence rot
 	http.HandleFunc("/logik/game", MasterMindHandler) // mastermind
 	http.HandleFunc("/logik/guess", MasterMindGuessHandler)
 
