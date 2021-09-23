@@ -1,0 +1,42 @@
+version: "3"
+services:
+  server:
+    build: .
+    expose:
+      - 80
+    restart: always
+    labels:
+      - traefik.http.routers.server.rule=Host(`escape.tivvit.dev`)
+      - traefik.http.routers.server.tls=true
+      - traefik.http.routers.server.entrypoints=websecure
+      - traefik.http.routers.server.tls.certresolver=le
+      - traefik.port=80
+  traefik:
+    image: traefik:v2.5
+    command:
+      - "--api.insecure=true"
+      - "--api.dashboard=true"
+      - "--providers.docker=true"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.le.acme.tlschallenge=true"
+      - "--certificatesresolvers.le.acme.email=tivvitmail@gmail.com"
+      - "--certificatesresolvers.le.acme.storage=/letsencrypt/acme.json"
+    labels:
+      - "traefik.http.routers.traefik.rule=Host(`traefik.tivvit.dev`)"
+      - "traefik.http.routers.traefik.entrypoints=websecure"
+      - "traefik.http.routers.traefik.tls.certresolver=le"
+      - "traefik.http.routers.traefik.service=api@internal"
+      - "traefik.http.routers.traefik.tls=true"
+      - "traefik.http.routers.traefik.middlewares=auth"
+      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
+      - "traefik.http.middlewares.auth.basicauth.users=tivvit:$$2y$$05$$z/mluGv2PG.GUFsGhqpwyev92TByrgoVswWejzpzQDKqhxB59IJgm"
+    expose:
+      - 8080
+    ports:
+      - "80:80"
+      - "443:443"
+#      - "8080:8080"
+    volumes:
+      - "./letsencrypt:/letsencrypt"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    restart: always

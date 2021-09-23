@@ -72,6 +72,7 @@ func main() {
 	http.HandleFunc("/48", TextHandler("4D"))         // infinite sumo
 	http.HandleFunc("/510", TextHandler("5E"))        // long shift with logic puzzle
 	http.HandleFunc("/781", TextHandler("6F"))        // number sequence rot
+	// todo color mapping
 	http.HandleFunc("/logik/game", MasterMindHandler) // mastermind
 	http.HandleFunc("/logik/guess", MasterMindGuessHandler)
 
