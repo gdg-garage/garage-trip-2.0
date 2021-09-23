@@ -1,0 +1,37 @@
+<html>
+<head>
+    <link href="/css/style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <h1>{{.Title}}</h1>
+    <div class="dotrow">
+        <div class="gray dot"></div>
+        <div class="gray dot"></div>
+        <div class="gray dot"></div>
+        <div class="gray dot"></div>
+        <div class="gray dot"></div>
+        <div class="gray dot"></div>
+    </div><br>
+    <div class="dotrow">
+        <div class="R dot">R</div>
+        <div class="Y dot">Y</div>
+        <div class="B dot">B</div>
+        <div class="G dot">G</div>
+        <div class="P dot">P</div>
+        <div class="T dot">T</div>
+    </div>
+    <br>
+
+    <!-- Guess history -->
+    {{range $guess := .GuessHistory}}
+        {{range $color := $guess.Configuration}}
+        <div class="{{$color}} dot"></div>
+        {{end}} {{$guess.Black}} {{$guess.White}}<br>
+    {{end}}
+    <form action="/logik/guess" method="POST">
+    <div><textarea name="body" rows="1" cols="15"></textarea></div>
+    <div><input type="submit" value="Guess"></div>
+    </form>
+    {{if .Win}} VICTORY!! {{end}}
+</body>
+</html>
