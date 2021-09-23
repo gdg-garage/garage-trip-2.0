@@ -1,0 +1,1 @@
+openssl smime -decrypt -binary -in encrypted -inform DER -out decrypted.pdf -inkey private.key -passin file:pass
