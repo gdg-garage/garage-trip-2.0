@@ -41,13 +41,49 @@
   color: rgb(238, 238, 238);
 }
 
+.V {
+  background-color: violet;
+}
+
+.S {
+  background-color: skyblue;
+}
+
 .dotrow {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 20%;
+  padding-bottom: 0.2em;
+  width: 15%;
+}
+
+.textinput {
+  display: inline-block;
+}
+.submitbutton {
+  display: inline-block;
+}
+
+.submitrow {
+  width: 12%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.legend {
+  width: 19.5%;
 }
 
 textarea {
   resize: none;
+}
+
+#victory {
+  font-size:xx-large;
+  text-align: center;
+}
+
+#note {
+  font-size: small;
+  text-align: center;
 }

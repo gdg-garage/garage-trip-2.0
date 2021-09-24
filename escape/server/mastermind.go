@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 func min(a, b int) int {
@@ -20,7 +21,7 @@ type GuessResult struct {
 type MasterMind struct {
 	Solution     string
 	Solved       bool
-	GuessHistory []GuessResult
+	GuessHistory []GuessResult // First item is the last guessed (FIFO)
 }
 
 func NewMastermind(solution string) *MasterMind {
@@ -52,13 +53,14 @@ func (m *MasterMind) Guess(configuration string) (int, int, error) {
 	if len(configuration) != len(m.Solution) {
 		return 0, 0, fmt.Errorf("Wrong format")
 	}
+	configuration = strings.ToUpper(configuration)
 	g := GuessResult{
 		Configuration: strSplit(configuration),
 	}
 	if configuration == m.Solution {
 		g.Black = len(configuration)
 		g.White = 0
-		m.GuessHistory = append(m.GuessHistory, g)
+		m.GuessHistory = append([]GuessResult{g}, m.GuessHistory...)
 		m.Solved = true
 		return g.Black, g.White, nil
 	}
@@ -81,7 +83,7 @@ func (m *MasterMind) Guess(configuration string) (int, int, error) {
 		}
 	}
 
-	m.GuessHistory = append(m.GuessHistory, g)
+	m.GuessHistory = append([]GuessResult{g}, m.GuessHistory...)
 
 	return g.Black, g.White, nil
 }
