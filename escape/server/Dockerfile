@@ -17,6 +17,7 @@ WORKDIR /
 COPY --from=build /server /server
 COPY html html
 COPY css css
+COPY files files
 
 EXPOSE 80
 

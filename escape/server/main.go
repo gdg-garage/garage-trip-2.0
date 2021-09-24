@@ -54,6 +54,12 @@ func MasterMindGuessHandler(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/logik", http.StatusFound)
 }
 
+func ServeKeyHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Disposition", "attachment; filename=private.key")
+	w.Header().Set("Content-Type", "application/octet-stream")
+	http.ServeFile(w, r, "files/private.key")
+}
+
 func main() {
 	var port = flag.Int("p", 8080, "Port")
 	var logfile = flag.String("l", "log.txt", "Logfile")
@@ -75,6 +81,7 @@ func main() {
 	// todo color mapping
 	http.HandleFunc("/logik", MasterMindHandler) // mastermind
 	http.HandleFunc("/logik-guess", MasterMindGuessHandler)
+	http.HandleFunc("/final-cipher", ServeKeyHandler)
 
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", *port), nil))
 }

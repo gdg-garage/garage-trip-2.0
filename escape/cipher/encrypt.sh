@@ -1,0 +1,1 @@
+openssl smime -encrypt -binary -aes-256-cbc -in medical-report.pdf -out encrypted -outform DER certificate.pem
