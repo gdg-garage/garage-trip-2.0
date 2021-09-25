@@ -72,16 +72,16 @@ func main() {
 	log.SetOutput(file)
 
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("./css/"))))
-	http.HandleFunc("/axzfom", TextHandler("1A"))   // cross
-	http.HandleFunc("/PSAMRBJZ", TextHandler("2B")) // cars
-	http.HandleFunc("/FANTASY", TextHandler("3C"))  // piano
-	http.HandleFunc("/48", TextHandler("4D"))       // infinite sumo
-	http.HandleFunc("/510", TextHandler("5E"))      // long shift with logic puzzle
-	http.HandleFunc("/781", TextHandler("6F"))      // number sequence rot
-	// todo color mapping
-	http.HandleFunc("/logik", MasterMindHandler) // mastermind
+	http.HandleFunc("/axzfom", TextHandler("1X"))   // cross
+	http.HandleFunc("/PSAMRBJZ", TextHandler("20")) // cars
+	http.HandleFunc("/FANTASY", TextHandler("3z"))  // piano
+	http.HandleFunc("/48", TextHandler("4r"))       // infinite sumo
+	http.HandleFunc("/510", TextHandler("5k"))      // long shift with logic puzzle
+	http.HandleFunc("/781", TextHandler("6A"))      // number sequence rot
+	http.HandleFunc("/MIND", TextHandler("77"))     // number sequence rot
+	http.HandleFunc("/logik", MasterMindHandler)    // mastermind
 	http.HandleFunc("/logik-guess", MasterMindGuessHandler)
-	http.HandleFunc("/final-cipher", ServeKeyHandler)
+	http.HandleFunc("/X0zrkA7", ServeKeyHandler)
 
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", *port), nil))
 }
