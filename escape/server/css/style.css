@@ -13,8 +13,8 @@
   background-color: rgb(175, 175, 175);
 }
 
-.B {
-  background-color: blue;
+.A {
+  background-color: #036ec7;
   color: rgb(238, 238, 238);
 }
 
@@ -28,25 +28,28 @@
 }
 
 .G {
-  background-color: rgb(28, 180, 28);
-}
-
-.P {
-  background-color: rgb(124, 28, 180);
+  background-color: rgb(0, 91, 0);
   color: rgb(238, 238, 238);
 }
 
-.T {
-  background-color: teal;
+.B {
+  background-color: rgb(70, 33, 201);
   color: rgb(238, 238, 238);
 }
 
-.V {
-  background-color: violet;
+.O {
+  background-color: #ff8800;
+  color: rgb(238, 238, 238);
 }
 
-.S {
-  background-color: skyblue;
+.K {
+  background-color: #000000;
+  color: rgb(238, 238, 238);
+}
+
+.W {
+  background-color: #523827;
+  color: rgb(238, 238, 238);
 }
 
 .dotrow {

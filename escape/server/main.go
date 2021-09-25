@@ -9,7 +9,7 @@ import (
 	"os"
 )
 
-var mastermind MasterMind = MasterMind{Solution: "RYPBRT"}
+var mastermind MasterMind = MasterMind{Solution: "OGYRAB"}
 
 type Page struct {
 	Title        string

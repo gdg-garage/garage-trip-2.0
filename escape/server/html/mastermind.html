@@ -3,30 +3,29 @@
     <link href="/css/style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-    <h1>{{.Title}}</h1>
     <div class="dotrow">
-        <div class="E dot">1</div>
-        <div class="E dot">3</div>
-        <div class="E dot">8</div>
         <div class="E dot">4</div>
+        <div class="E dot">3</div>
+        <div class="E dot">6</div>
+        <div class="E dot">2</div>
+        <div class="E dot">8</div>
         <div class="E dot">7</div>
-        <div class="E dot">9</div>
     </div><br>
     <div class="dotrow legend">
         <div class="R dot">R</div>
         <div class="Y dot">Y</div>
-        <div class="B dot">B</div>
+        <div class="A dot">A</div>
         <div class="G dot">G</div>
-        <div class="P dot">P</div>
-        <div class="T dot">T</div>
-        <div class="V dot">V</div>
-        <div class="S dot">S</div>
+        <div class="B dot">B</div>
+        <div class="K dot">K</div>
+        <div class="O dot">O</div>
+        <div class="W dot">W</div>
     </div>
     <br>
     
     <form action="/logik-guess" method="POST">
         <div class="submitrow">
-            <div class="textinput"><input type="text" name="body" size="6"></div>
+            <div class="textinput"><input type="text" name="body" size="10"></div>
             <div class="submitbutton"><input type="submit" value="Guess"></div>
         </div>
     </form>
@@ -38,6 +37,6 @@
             {{end}} {{$guess.Black}} {{$guess.White}}<br>
         </div>
     {{end}}
-    {{if .Win}} <div id="victory">VICTORY!!</div> {{else}} <div id="note">configuration in format [RYBGPT]{6}"</div> {{end}}
+    {{if .Win}} <div id="victory">VICTORY!!</div> {{else}} <div id="note">configuration in format [RYAGBKOW]{6}"</div> {{end}}
 </body>
 </html>
